@@ -1,0 +1,50 @@
+package csea;
+
+import java.util.Scanner;
+
+public class Studentcalculator { 
+	 public static double calculateAverage(double[] scores) {
+	        double sum = 0;
+	        for (double score : scores) {
+	            sum += score;
+	        }
+	        return sum / scores.length;
+	    }
+	 public static String determinegrade(double average)
+	 {
+		 if (average >= 90) {
+	            return "A";
+	        } else if (average >= 80) {
+	            return "B";
+	        } else if (average >= 70) {
+	            return "C";
+	        } else if (average >= 60) {
+	            return "D";
+	        } else {
+	            return "F";
+	        }
+		 
+	 }
+   	public static void main(String[] args) {
+		 Studentcalculator s1=new Studentcalculator();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the name of the student");
+		String name=sc.nextLine();
+		System.out.println("enter the total number of subjects");
+		int n=sc.nextInt();
+		double ar[] =new double[n];
+		System.out.println("enter the marks of each subject");
+		for(int i=0;i<n;i++)
+		{
+			ar[i]=sc.nextInt();
+			
+		}
+		double average=s1.calculateAverage(ar);
+		String grade = s1.determinegrade(average);
+		 System.out.println("Average score: " + average);
+	       System.out.println("Grade: " + grade);
+
+	        sc.close();
+	}
+
+}
